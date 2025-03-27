@@ -319,7 +319,7 @@ class ProgrammingAssignment1 {
             }
         }
         else{
-            System.out.println("Median Execution time: " + (double)totalTime[medianof3(totalTime[0], totalTime[1], totalTime[2]) - 1]/1000000 + " s");
+            System.out.println("Median Execution time: " + (double)totalTime[medianof3(totalTime[0], totalTime[1], totalTime[2]) - 1]/1000000 + " ms");
         }
     }
 }
