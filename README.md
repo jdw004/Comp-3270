@@ -4,5 +4,5 @@
 - Auburn University
 
 🔹Project 1 - Sorting Algorithms<br />
-🔸 Project 2 - TBD<br />
+🔸 Project 2 - Graph Algorithms (BFS/DFS)<br />
 🔺 Project 3 - TBD<br />
