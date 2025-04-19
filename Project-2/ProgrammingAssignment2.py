@@ -1,22 +1,36 @@
 from collections import deque
+import time
 
-# DFS
-def dfs(start, end, visited):
-    visited.add(start)
-    if start == end:
-        return len(visited)
+# DFS Iterative
+def dfs(start, end):
+    if end not in adj:
+        print(f"Not possible")
+        return -1
     
-    #Visit neighbors
-    if start in adj: 
-        for neighbor in adj[start]:
-            if neighbor not in visited:
-                result = dfs(neighbor, end, visited)
-                if result:
-                    return result
+    visited = set()
+    stack = [start]
+    visited.add(start)
+    
+    while stack:
+        node = stack.pop()
+        
+        if node == end:
+            return len(visited)
+        
+        if node in adj:
+            for neighbor in reversed(adj[node]):
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    stack.append(neighbor)
+    
     return len(visited)
 
 # BFS Iterative
 def bfs(start, end):
+    if end not in adj:
+        print(f"Not posible")
+        return -1
+    
     q = deque([start])
     visited = set([start])
     
@@ -54,8 +68,22 @@ for x, y in inputs:
         adj[y] = [x]
 
 
-#Testing here
-visited_nodes = dfs("N_0", "N_10", set())
-print("Nodes Visited (DFS):", visited_nodes)
-visited_nodes = bfs("N_0", "N_10")
-print("Nodes Visited (BFS):", visited_nodes)
+#Testing 
+# DFS
+startTime = time.perf_counter_ns()
+visited_nodes_dfs = dfs("N_0", "N_24")
+endTime = time.perf_counter_ns()
+dfsTime = endTime - startTime
+dfsTimeMs = round((dfsTime / 1_000_000),4)
+
+# BFS
+startTimeTwo = time.perf_counter_ns()
+visited_nodes_bfs = bfs("N_0", "N_24")
+endTimeTwo = time.perf_counter_ns()
+bfsTime = endTimeTwo - startTimeTwo
+bfsTimeMs = round((bfsTime / 1_000_000),4)
+
+print("Nodes Visited (BFS):", visited_nodes_bfs)
+print("BFS Runtime (milliseconds):", bfsTimeMs)
+print("Nodes Visited (DFS):", visited_nodes_dfs)
+print("DFS Runtime (milliseconds):", dfsTimeMs)
