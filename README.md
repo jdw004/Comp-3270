@@ -5,4 +5,3 @@
 
 🔹Project 1 - Sorting Algorithms (Java)<br />
 🔸 Project 2 - Graph Algorithms (Python)<br />
-🔺 Project 3 - TBD<br />
