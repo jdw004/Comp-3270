@@ -1,6 +1,6 @@
 from collections import deque
 
-# DFS Recursive
+# DFS
 def dfs(start, end, visited):
     visited.add(start)
     if start == end:
